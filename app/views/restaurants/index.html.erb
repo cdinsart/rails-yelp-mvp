@@ -1,11 +1,27 @@
 <h1>Here are all the restaurants</h1>
-
-<% @restaurants.each do |restaurant| %>
-<%= link_to restaurant.name, restaurant_path(restaurant) %>
-<%= restaurant.address %>
-<%= restaurant.phone_number %>
-<%= restaurant.category %>
-<br>
-<br>
-<% end %>
+<div class="cards border p-1">
+  <% @restaurants.each do |restaurant| %>
+  <div class="card shadow mx-auto p-3 rounded d-flex justify-content-between">
+    <div class="card-content">
+    <p>
+      <strong>Name:</strong>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    </p>
+    <p>
+      <strong>Address:</strong>
+    <%= restaurant.address %>
+    </p>
+    <p>
+      <strong>Phone Number:</strong>
+    <%= restaurant.phone_number %>
+    </p>
+    <p>
+      <strong>Cuisine:</strong>
+    <%= restaurant.category %>
+    </p>
+    </div>
+    <img src="https://source.unsplash.com/1600x900/?restaurant" class="object-cover-fit w-50 justify-content-center" alt="">
+  </div>
+    <% end %>
+</div>
 <%= link_to 'Create a new restaurant', new_restaurant_path %>
